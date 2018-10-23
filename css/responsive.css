@@ -1,0 +1,43 @@
+/* Responsive design section */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 380px) {
+  img.bird {
+    display: none;
+  }
+
+  div.twitter-timeline {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 380px) {
+  img.tlogo {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 375px) {
+  div.title {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 319px) {
+}
+
+/* Small devices (portrait tablets and large large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .nav a {
+    font-size: 30px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

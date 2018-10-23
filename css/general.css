@@ -1,0 +1,71 @@
+/* title, navigation bar, general display */
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background-image: linear-gradient(#a3cbff,#9ae1ec);
+  width: 100vw;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div.title {
+  font-size: calc(17px + 4vw);
+  opacity: 0.7;
+  color: #666;
+  text-align: center;
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  display: inline-block;
+  /* this is padding around the button not the space between each one */
+  padding: 20px;
+  margin: 0;
+  text-decoration: none;
+  color: #666;
+  font-size: 30px;
+}
+
+li a {
+  background-color: #999;
+}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
+  /* margin: -4; */
+}
+
+li a.inactive {
+  /* margin: -4; */
+}
+
+/*  ul but not the li's inside it, no gaps in navigation bar*/
+ul:not(li) {
+  font-size: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
