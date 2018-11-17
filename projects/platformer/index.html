@@ -31,7 +31,7 @@
   </style>
 </head>
 
-<body>
+<body onfocus="playSound()">
   <audio id="myAudio">
     <source src="thickkchiptune.wav" type="audio/wav">
   </audio>
@@ -43,7 +43,9 @@
 </body>
 <script type="text/javascript">
 var x = document.getElementById("myAudio");
+function playSound() {
 x.play();
+}
 </script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/p5.js"></script>
