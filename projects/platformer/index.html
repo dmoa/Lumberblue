@@ -41,11 +41,10 @@
   <br>
   <p>10/Nov/18</p>
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
 <script type="text/javascript">
-var x = document.getElementById("myAudio");
-function playSound() {
-x.play();
-}
+var sound = new Howl({src: ['thickkchiptune.wav'],autoplay:true, loop: true});
+sound.play();
 </script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/p5.js"></script>
