@@ -43,8 +43,10 @@
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
 <script type="text/javascript">
-var sound = new Howl({src: ['thickkchiptune.wav'],autoplay:true, loop: true});
-sound.play();
+var sound = new Howl({src: ['thickkchiptune.wav'],autoplay:false, loop: true});
+sound.once('load',function() {
+  sound.play();
+});
 </script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/p5.js"></script>
