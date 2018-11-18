@@ -31,7 +31,7 @@
   </style>
 </head>
 
-<body onfocus="playSound()">
+<body>
   <audio id="myAudio">
     <source src="thickkchiptune.wav" type="audio/wav">
   </audio>
@@ -43,7 +43,7 @@
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
 <script type="text/javascript">
-var sound = new Howl({src: ['thickkchiptune.wav'],autoplay:false, loop: true});
+var sound = new Howl({src: ['thickkchiptune.wav'],autoplay:false, loop: true, volume: 0.4});
 sound.once('load',function() {
   sound.play();
 });
