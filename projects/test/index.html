@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>testing, testing</h1>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
-    <script type="text/javascript">
-var sound = new Howl({src: ["exportedboi.wav"], loop: true});
-sound.play();
-    </script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h1>testing, testing</h1>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
+  <script type="text/javascript">
+    var sound = new Howl({
+      src: ["exportedboi.wav"],
+      loop: false
+    });
+
+    var myVar = setInterval(myTimer, 2000);
+
+    function myTimer() {
+      sound.play();
+    }
+
+    sound.play();
+  </script>
+</body>
+
 </html>
