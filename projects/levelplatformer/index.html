@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="icon" href="../../img/tabicons/platformercollisionsicon.png">
-  <title>platformer collision</title>
+  <link rel="icon" href="../img/tabicons/mainicon.png">
+  <title>platformer</title>
   <style media="screen">
     * {
     padding: 0;
@@ -32,29 +32,41 @@
 </head>
 
 <body>
-  <audio id="myAudio">
-    <source src="thickkchiptune.wav" type="audio/wav">
-  </audio>
   <div id="canvas">
   </div>
   <br>
   <br>
   <p>10/Nov/18</p>
 </body>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.core.min.js"></script>
 <script type="text/javascript">
-  var sound = new Howl({
-    src: ['thickkchiptune.wav'],
-    autoplay: false,
-    loop: true,
-    volume: 0.2
-  });
-  sound.once('load', function() {
-    sound.play();
-  });
+let playery = 100;
+let playerLength = 50;
+let playerx = 50;
+let playervy = 3;
+let playervx = 5;
+let acceleration = 0.1;
+let jumping = true;
+let boundaryThickness = 5;
+
+let particles = [];
+let numparticles = 60;
+
+let platforms = [];
+let platformstfL = 0;
+let platformstfR = 0;
+let platformstfF = 0;
+
+let alphalevelchange = 0;
+let alphainterval = 3;
+
+let currentlevel = 0;
+
+let displaylevel = currentlevel + 1;
+
 </script>
-<script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/p5.js"></script>
 <script type="text/javascript" src="js/classes.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/levels.js"></script>
 
 </html>
