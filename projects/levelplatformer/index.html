@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="icon" href="../img/tabicons/mainicon.png">
+  <link rel="icon" href="../../img/tabicons/mainicon.png">
   <title>platformer</title>
   <style media="screen">
     * {
@@ -36,33 +36,34 @@
   </div>
   <br>
   <br>
-  <p>10/Nov/18</p>
+  <p>1/Dec/18</p>
 </body>
 <script type="text/javascript">
-let playery = 100;
-let playerLength = 50;
-let playerx = 50;
-let playervy = 3;
-let playervx = 5;
-let acceleration = 0.1;
-let jumping = true;
-let boundaryThickness = 5;
+  let playery = -100;
+  let playerLength = 50;
+  let playerx;
+  let playervy = 3;
+  let playervx = 4;
+  let acceleration = 0.1;
+  let jumping = true;
+  let boundaryThickness = 5;
 
-let particles = [];
-let numparticles = 60;
+  let particles = [];
+  let numparticles = 60;
 
-let platforms = [];
-let platformstfL = 0;
-let platformstfR = 0;
-let platformstfF = 0;
+  let platforms = [];
+  let platformstfL = 0;
+  let platformstfR = 0;
+  let platformstfF = 0;
 
-let alphalevelchange = 0;
-let alphainterval = 3;
+  let alphalevelchange = 0;
+  let alphainterval = 3;
 
-let currentlevel = 0;
+  let currentlevel = 0;
 
-let displaylevel = currentlevel + 1;
+  let displaylevel = currentlevel + 1;
 
+  let startedgame = false;
 </script>
 <script type="text/javascript" src="js/p5.js"></script>
 <script type="text/javascript" src="js/classes.js"></script>

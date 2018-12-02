@@ -5,26 +5,30 @@ function setup() {
   playerx = width / 2 - playerLength / 2;
   platforms = alllevels[currentlevel];
   changinglevel = false;
+
+  textAlign(CENTER);
+  textSize(64);
+
 }
 
 function draw() {
-  background("#000000");
+  if (startedgame) {
+    background("#000000");
+    //drawing boundaries of canvas
+    fill("#888888");
+    rect(0, 0, boundaryThickness, height);
+    rect(0, height - boundaryThickness, width, height);
+    rect(width - boundaryThickness, 0, boundaryThickness, height);
 
-  //drawing boundaries of canvas
-  fill("#888888");
-  rect(0, 0, boundaryThickness, height);
-  rect(0, height - boundaryThickness, width, height);
-  rect(width - boundaryThickness, 0, boundaryThickness, height);
+    //player
+    fill("#39CCCC");
+    rect(playerx, playery, playerLength, playerLength);
 
-  //player
-  fill("#666666");
-  rect(playerx, playery, playerLength, playerLength);
-
-
-  if (!changinglevel) {
+    platformstfL = 0;
+    platformstfR = 0;
+    platformstfF = 0;
     //updating Exit
-    if (currentlevel + 1 < alllevels.length &&
-      ((playerx + playerLength >= platforms[0].x &&
+    if (((playerx + playerLength >= platforms[0].x &&
           playerx + playerLength <= platforms[0].x + platforms[0].width) ||
         (playerx >= platforms[0].x &&
           playerx <= platforms[0].x + platforms[0].width) ||
@@ -34,10 +38,14 @@ function draw() {
         playery >= platforms[0].y &&
         playery <= platforms[0].y + platforms[0].height)) {
       changinglevel = true;
-      displaylevel = currentlevel + 1;
+      if (currentlevel + 2 < alllevels.length) {
+        displaylevel = currentlevel + 1;
+      } else {
+        displaylevel = "game complete"
+      }
     }
     //update player
-
+    //currentlevel + 1 < alllevels.length &&
     if (playery + playervy >= height - playerLength - boundaryThickness) {
       playery = height - playerLength - boundaryThickness;
     }
@@ -47,9 +55,6 @@ function draw() {
     if (playerx + playerLength + playervx > width - boundaryThickness) {
       playerx = width - boundaryThickness - playerLength;
     }
-    platformstfL = 0;
-    platformstfR = 0;
-    platformstfF = 0;
 
     for (let i = 0; i < platforms.length; i++) {
       if ([playervy] < 0 && playery > platforms[i].y &&
@@ -113,59 +118,74 @@ function draw() {
         platformstfF++;
       }
     }
-
+    if (changinglevel) {
+      platformstfL = 0;
+      platformstfR = 0;
+      platformstfF = 0;
+    }
     if ((keyIsDown(LEFT_ARROW) || keyIsDown(65)) && platformstfL == platforms.length) {
       playerx -= playervx;
     }
     if ((keyIsDown(RIGHT_ARROW) || keyIsDown(68)) && platformstfR == platforms.length) {
       playerx += playervx;
     }
-    //OVERHERE UNDER HERE
-  }
-  if (platformstfF == platforms.length) {
-    if (!jumping) {
-      jumping = true;
-      acceleration = 0.3;
+
+
+
+    //   //OVERHERE UNDER HERE
+    // }
+
+    if (platformstfF == platforms.length) {
+      if (!jumping) {
+        jumping = true;
+        acceleration = 0.3;
+      }
+      playery += playervy;
+      playervy += acceleration;
+      acceleration += 0.001;
+    } else {
+      playervy = 0;
+      jumping = false;
     }
-    playery += playervy;
-    playervy += acceleration;
-    acceleration += 0.001;
+
+    //platforms drawing
+    for (var i = 0; i < platforms.length; i++) {
+      platforms[i].show();
+    }
+    if (changinglevel) {
+      background(255, 220, 100, alphalevelchange);
+      fill(0, 0, 0);
+      text(displaylevel, width / 2, height / 2);
+      alphalevelchange += alphainterval;
+      if (alphalevelchange >= 255) {
+        alphainterval = -1.5;
+        currentlevel++;
+        platforms = alllevels[currentlevel];
+      }
+      if (alphalevelchange < 0) {
+        alphainterval = 1.5;
+        alphalevelchange = 0;
+        changinglevel = false;
+      }
+    }
   } else {
-    playervy = 0;
-    jumping = false;
-  }
-
-
-  //platforms drawing
-  for (var i = 0; i < platforms.length; i++) {
-    platforms[i].show();
-  }
-  if (changinglevel) {
-    background(255, 220, 100, alphalevelchange);
-    textSize(64);
-    fill(0, 0, 0);
-    textAlign(CENTER);
-    text(displaylevel, width / 2, height / 2);
-    alphalevelchange += alphainterval;
-    if (alphalevelchange >= 255) {
-      alphainterval = -2;
-      currentlevel++;
-      platforms = alllevels[currentlevel];
-    }
-    if (alphalevelchange < 0) {
-      alphainterval = 3;
-      alphalevelchange = 0;
-      changinglevel = false;
-    }
+    background("#000000");
+    fill(255, 255, 255)
+    text("press enter to start", width / 2, height / 2);
+    fill("#39CCCC");
+    rect(600 / 2 - playerLength / 2, height / 2 + 100, 50, 50);
   }
 }
 
 //jumping
 function keyPressed() {
-  if ((keyCode == 32) && !jumping) {
+  if ((keyCode == 32 || keyCode == 87 || keyCode == 38) && !jumping && !changinglevel) {
     playervy = -7;
     playery -= 10;
     acceleration = 0.3;
     jumping = true;
+  }
+  if (keyCode == 13) {
+    startedgame = true;
   }
 }
