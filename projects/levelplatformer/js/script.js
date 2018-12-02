@@ -13,7 +13,27 @@ function setup() {
 
 function draw() {
   if (startedgame) {
-    background("#000000");
+    background("#333333");
+
+    //pointy arrows
+    textSize(40);
+    fill(0, 0, 0);
+    if (currentlevel == 1) {
+      text("➜", 360, 385);
+    } else if (currentlevel == 2) {
+      text("⬑", 280, 385);
+      text("⬅", 225, 340);
+    } else if (currentlevel == 3) {
+      text("⬈", 300, 325);
+    }
+
+    if (end) {
+      console.log(alphalevelchange);
+      fill(57, 204, 204, alphalevelchange);
+      textSize(50);
+      text("thanks for playing!", width / 2, 100);
+    }
+
     //drawing boundaries of canvas
     fill("#888888");
     rect(0, 0, boundaryThickness, height);
@@ -42,6 +62,7 @@ function draw() {
         displaylevel = currentlevel + 1;
       } else {
         displaylevel = "game complete"
+        end = true;
       }
     }
     //update player
@@ -131,10 +152,6 @@ function draw() {
     }
 
 
-
-    //   //OVERHERE UNDER HERE
-    // }
-
     if (platformstfF == platforms.length) {
       if (!jumping) {
         jumping = true;
@@ -147,34 +164,45 @@ function draw() {
       playervy = 0;
       jumping = false;
     }
-
     //platforms drawing
     for (var i = 0; i < platforms.length; i++) {
       platforms[i].show();
     }
     if (changinglevel) {
-      background(255, 220, 100, alphalevelchange);
-      fill(0, 0, 0);
+      background(1, 255, 112, alphalevelchange);
+      fill(0, 0, 0, alphalevelchange);
+      textSize(64);
       text(displaylevel, width / 2, height / 2);
       alphalevelchange += alphainterval;
       if (alphalevelchange >= 255) {
-        alphainterval = -1.5;
+        alphainterval = -5;
         currentlevel++;
         platforms = alllevels[currentlevel];
       }
-      if (alphalevelchange < 0) {
+      if (alphalevelchange < -20) {
         alphainterval = 1.5;
         alphalevelchange = 0;
         changinglevel = false;
       }
     }
   } else {
-    background("#000000");
+    background("#333333");
     fill(255, 255, 255)
+    textSize(50);
     text("press enter to start", width / 2, height / 2);
     fill("#39CCCC");
     rect(600 / 2 - playerLength / 2, height / 2 + 100, 50, 50);
+    textSize(20);
+    text("player", 600 / 2, height / 2 + 175);
+    fill("#888888")
+    rect(600 / 2 - playerLength / 2 - 100, height / 2 + 100, 50, 50);
+    text("platform", 600 / 2 - 100, height / 2 + 175);
+    fill("#DF00FF");
+    rect(600 / 2 - playerLength / 2 + 100, height / 2 + 100, 50, 50);
+    text("exit", 600 / 2 + 100, height / 2 + 175);
   }
+
+
 }
 
 //jumping

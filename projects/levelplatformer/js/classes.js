@@ -21,7 +21,6 @@ class Exit {
       this.width = width;
       this.height = height;
       this.color = exitcolors[Math.floor(Math.random() * exitcolors.length)];
-      console.log(this.color);
     }
     show() {
       fill(this.color);
