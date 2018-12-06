@@ -21,17 +21,19 @@ function draw() {
     if (currentlevel == 1) {
       text("➜", 360, 385);
     } else if (currentlevel == 2) {
-      text("⬑", 280, 385);
+      textSize(60);
+      text("⬑", 285, 385);
+      textSize(40);
       text("⬅", 225, 340);
     } else if (currentlevel == 3) {
       text("⬈", 300, 325);
     }
 
-    if (end) {
-      console.log(alphalevelchange);
-      fill(57, 204, 204, alphalevelchange);
+    if (end && alphalevelchange == 0) {
+      fill(57, 204, 204, alphalevelchangeTHANKS);
       textSize(50);
       text("thanks for playing!", width / 2, 100);
+      alphalevelchangeTHANKS++;
     }
 
     //drawing boundaries of canvas
