@@ -17,23 +17,26 @@ function draw() {
 
     //pointy arrows
     textSize(40);
-    fill(0, 0, 0);
+    fill(255, 255, 255);
     if (currentlevel == 1) {
       text("➜", 360, 385);
     } else if (currentlevel == 2) {
       textSize(60);
-      text("⬑", 285, 385);
+      text("⬑", 285, 390);
       textSize(40);
       text("⬅", 225, 340);
     } else if (currentlevel == 3) {
       text("⬈", 300, 325);
     }
+    fill(0, 0, 0);
 
     if (end && alphalevelchange == 0) {
       fill(57, 204, 204, alphalevelchangeTHANKS);
       textSize(50);
       text("thanks for playing!", width / 2, 100);
-      alphalevelchangeTHANKS++;
+      if (alphalevelchangeTHANKS < 255) {
+        alphalevelchangeTHANKS++;
+      }
     }
 
     //drawing boundaries of canvas
@@ -62,8 +65,8 @@ function draw() {
       changinglevel = true;
       if (currentlevel + 2 < alllevels.length) {
         displaylevel = currentlevel + 1;
-      } else {
-        displaylevel = "game complete"
+      } else if (displaylevel + 1 == alllevels.length - 1) {
+        displaylevel = "game complete";
         end = true;
       }
     }
@@ -166,10 +169,13 @@ function draw() {
       playervy = 0;
       jumping = false;
     }
+
     //platforms drawing
     for (var i = 0; i < platforms.length; i++) {
       platforms[i].show();
     }
+
+
     if (changinglevel) {
       background(1, 255, 112, alphalevelchange);
       fill(0, 0, 0, alphalevelchange);
@@ -201,7 +207,7 @@ function draw() {
     text("platform", 600 / 2 - 100, height / 2 + 175);
     fill("#DF00FF");
     rect(600 / 2 - playerLength / 2 + 100, height / 2 + 100, 50, 50);
-    text("exit", 600 / 2 + 100, height / 2 + 175);
+    text("goal", 600 / 2 + 100, height / 2 + 175);
   }
 
 
