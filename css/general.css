@@ -1,78 +1,51 @@
-/* title, navigation bar, general display */
+/* extras */
+img.tlogo {
+  padding: 0;
+  padding-top: 5vh;
+  margin: 0;
+  width: 50vw;
+}
+
+div.bird {
+  position: absolute;
+  top: 300px;
+  left: -400px;
+}
+
+/* prevent scrolling cus my bird in a div is special */
+body, html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   width: 100vw;
   height: 100vh;
 }
 
 body {
-  background-image: linear-gradient(#a3cbff,#9ae1ec);
+  background-image: linear-gradient(#a3cbff, #9ae1ec);
   width: 100vw;
   height: 100vh;
 }
 
-body, html {
-  overflow-y: visible;
-  padding: 0px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 div.title {
-  font-size: calc(17px + 4vw);
-  opacity: 0.7;
-  color: #666;
-  text-align: center;
-}
-
-.nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  opacity: 0.8;
-  text-align: center;
-  margin-bottom: 5vh;
-}
-
-.nav li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.nav a {
-  display: inline-block;
-  /* this is padding around the button not the space between each one */
-  padding: 20px;
-  margin: 0;
-  text-decoration: none;
-  color: #666;
+  margin: 5px;
   font-size: 30px;
+  text-align: center;
 }
 
-li a {
-  background-color: #999;
+div.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-li a.active {
-  color: white;
-  background-color: #4CAF50;
-  /* margin: -4; */
-}
-
-li a.inactive {
-  /* margin: -4; */
-}
-
-/*  ul but not the li's inside it, no gaps in navigation bar*/
-ul:not(li) {
-  font-size: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
+div.main-container div {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  display: flex;
+  background-color: #000000;
 }
