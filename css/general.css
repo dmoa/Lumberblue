@@ -31,9 +31,13 @@ body {
 }
 
 div.title {
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   font-size: 30px;
-  text-align: center;
+}
+
+div.example-text {
+  display: block;
 }
 
 div.main-container {
@@ -43,9 +47,13 @@ div.main-container {
 }
 
 div.main-container div {
-  width: 150px;
-  height: 150px;
-  margin: 5px;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
   display: flex;
   background-color: #000000;
+}
+div.main-container div img {
+  width: 200px;
+  height: 200px;
 }
