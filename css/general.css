@@ -34,25 +34,34 @@ div.example-text {
     display: block;
 }
 
-div.main-container {
+/* div.main-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
-div.main-container div {
+/* div.main-container div {
     width: 200px;
     height: 200px;
     /* margin: 50px; */
     display: flex;
-    background-color: #000000;
-}
+} */
 
-div.main-container a {
+/* div.main-container a {
     margin: 50px;
 }
 
 div.main-container div img {
     width: 200px;
     height: 200px;
+} */
+
+
+#ducks-oranges {
+    width: 200px;
+    height: 200px;
+}
+
+#ducks-oranges:hover {
+    content: url(img/ducks-oranges.png);
 }
