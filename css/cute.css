@@ -63,7 +63,7 @@ img {
     transition: 0.3s;
 }
 
-#images{
+#images {
     text-align: center;
 }
 
@@ -72,8 +72,8 @@ img {
     margin: 0;
     width: 25%;
     transition: 0.3s;
-    float:left;
-    clear:none;  
+    float: left;
+    clear: none;
 }
 
 .image:hover {
@@ -87,14 +87,19 @@ img {
     padding: 15px;
     color: white;
     transition: 0.5s ease;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
 }
 
-.prev{
+.prev {
     border-radius: 0 3px 3px 0;
+    left: 0px;
 }
 
 .next {
     border-radius: 3px 0 0 3px;
+    right: 0px;
 }
 
 .prev:hover,
@@ -110,4 +115,3 @@ img {
 .preview:hover {
     opacity: 1;
 }
-
