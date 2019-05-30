@@ -7,7 +7,8 @@ img.tlogo {
 }
 
 /* prevent scrolling cus my bird in a div is special */
-body, html {
+body,
+html {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -34,33 +35,42 @@ div.example-text {
     display: block;
 }
 
-div.main-container {
+div.projects {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-div.main-container div {
-    width: 200px;
-    height: 200px;
-    /* margin: 50px; */
+div.projects>a {
+    margin: 50px;
+    width: 400px;
+    height: 400px;
+}
+
+div.projects>a>img {
+    width: 400px;
+    height: 400px;
     display: flex;
 }
 
- div.main-container a {
-    margin: 50px;
+div.projects>a {
+    text-decoration: none;
 }
 
-div.main-container div img {
-    width: 200px;
-    height: 200px;
+div.projects>a>div,
+div.projects>a>p {
+    color: black;
 }
 
-
-#ducks-oranges:hover {
-    content: url("https://itsmestan.com/img/ducks-oranges.gif");
+div.projects>a>div {
+    font-size: 35px;
+    text-align: center;
 }
 
-#tether-party-panic:hover {
-    content: url("https://itsmestan.com/img/tetherpartypanic.gif");
+#twitter-embed {
+    display: block;
+    width: 500px;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 50px;
 }
