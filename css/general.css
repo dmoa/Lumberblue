@@ -45,12 +45,25 @@ div.projects>a {
     margin: 50px;
     width: 400px;
     height: 400px;
+    margin-bottom: 100px;
 }
 
-div.projects>a>img {
+div.projects>a>img,
+#cropped-exception {
     width: 400px;
     height: 400px;
     display: flex;
+    margin-bottom: 10px;
+}
+
+#cropping-div {
+    width: 399px;
+    height: 399px;
+    overflow: hidden;
+}
+
+div.projects>a>p {
+    margin-bottom: 100px;
 }
 
 div.projects>a {
