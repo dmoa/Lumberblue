@@ -6,6 +6,10 @@ img.tlogo {
     width: 50vw;
 }
 
+* {
+    font-family: "Montserrat";
+}
+
 /* prevent scrolling cus my bird in a div is special */
 body,
 html {
